@@ -1,0 +1,71 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+
+  <div class="card shadow">
+    <div class="card-header text-white" style="background-color: #1a6b3c;">
+      <h4 class="mb-0">📝 Formulario de Matrícula</h4>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="guardar()">
+
+        <div class="mb-3">
+          <label class="form-label">Nombres</label>
+          <input type="text" class="form-control"
+                 [(ngModel)]="datos.nombres" name="nombres" required>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Código Estudiante</label>
+          <input type="text" class="form-control"
+                 [(ngModel)]="datos.codigoEstudiante" name="codigoEstudiante" required>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Curso</label>
+          <select class="form-select" [(ngModel)]="datos.cursoId" name="cursoId">
+            <option [ngValue]="0">Selecciona un curso</option>
+            <option *ngFor="let c of cursos" [ngValue]="c.id">
+              {{ c.nombre }} ({{ c.vacantes }} vacantes)
+            </option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Turno</label>
+          <select class="form-select" [(ngModel)]="datos.turno" name="turno">
+            <option>Mañana</option>
+            <option>Tarde</option>
+            <option>Noche</option>
+          </select>
+        </div>
+
+        <button class="btn btn-success" type="submit">Registrar Matrícula</button>
+
+      </form>
+    </div>
+  </div>
+
+  <hr class="mt-5">
+  <h4>Alumnos Matriculados</h4>
+
+  <table class="table table-bordered table-striped mt-3">
+    <thead class="table-dark">
+      <tr>
+        <th>Nombre</th>
+        <th>Código</th>
+        <th>Curso ID</th>
+        <th>Turno</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let m of matriculas">
+        <td>{{ m.nombres }}</td>
+        <td>{{ m.codigoEstudiante }}</td>
+        <td>{{ m.cursoId }}</td>
+        <td>{{ m.turno }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

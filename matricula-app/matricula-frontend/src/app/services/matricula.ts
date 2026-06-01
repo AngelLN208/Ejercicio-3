@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable({ providedIn: 'root' })
 export class MatriculaService {
 
-private api = 'https://matricula-backend-0xgy.onrender.com/api/matriculas';
+  private api = 'http://localhost:8080/api/matriculas';
 
   constructor(private http: HttpClient) {}
 

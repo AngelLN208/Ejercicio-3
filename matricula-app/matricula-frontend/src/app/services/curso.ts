@@ -11,7 +11,7 @@ export class CursoService {
 
   private http = inject(HttpClient);
 
-  private api = 'https://matricula-backend-0xgy.onrender.com/api/cursos';
+  private api = 'http://localhost:8080/api/cursos';
 
   listarCursos(): Observable<Curso[]> {
 

@@ -1,9 +1,9 @@
-<div class="container mt-4">
+<app-navbar></app-navbar>
 
-  <h3>Lista de Cursos</h3>
+<div class="container mt-4">
+  <h3 class="mb-3">Lista de Cursos</h3>
 
   <table class="table table-bordered table-striped mt-3">
-
     <thead class="table-dark">
       <tr>
         <th>Código</th>
@@ -14,7 +14,6 @@
         <th>Estado</th>
       </tr>
     </thead>
-
     <tbody>
       <tr *ngFor="let c of cursos">
         <td>{{ c.codigo }}</td>
@@ -22,14 +21,10 @@
         <td>{{ c.creditos }}</td>
         <td>{{ c.modalidad }}</td>
         <td>{{ c.vacantes }}</td>
-
-        <td [ngClass]="c.vacantes > 0 ? 'text-success' : 'text-danger'">
+        <td [ngClass]="c.vacantes > 0 ? 'text-success fw-bold' : 'text-danger fw-bold'">
           {{ estado(c.vacantes) }}
         </td>
-
       </tr>
     </tbody>
-
   </table>
-
 </div>

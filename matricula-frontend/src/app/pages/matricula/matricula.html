@@ -1,169 +1,71 @@
+<app-navbar></app-navbar>
+
 <div class="container mt-5">
 
-  <!-- TABLA CURSOS -->
-  <h2 class="mb-4">Lista de Cursos</h2>
-
-  <table class="table table-bordered">
-
-    <thead class="table-dark">
-
-      <tr>
-        <th>Código</th>
-        <th>Nombre</th>
-        <th>Créditos</th>
-        <th>Modalidad</th>
-        <th>Vacantes</th>
-        <th>Estado</th>
-      </tr>
-
-    </thead>
-
-    <tbody>
-
-      <tr *ngFor="let c of cursos">
-
-        <td>{{ c.codigo }}</td>
-        <td>{{ c.nombre }}</td>
-        <td>{{ c.creditos }}</td>
-        <td>{{ c.modalidad }}</td>
-        <td>{{ c.vacantes }}</td>
-
-        <td>
-
-          <span *ngIf="c.vacantes > 0"
-                class="badge bg-success">
-
-            Disponible
-
-          </span>
-
-          <span *ngIf="c.vacantes == 0"
-                class="badge bg-danger">
-
-            Sin vacantes
-
-          </span>
-
-        </td>
-
-      </tr>
-
-    </tbody>
-
-  </table>
-
-  <!-- FORMULARIO -->
-  <div class="card shadow mt-5">
-
-    <div class="card-header bg-success text-white">
-      <h3>Formulario de Matrícula</h3>
+  <div class="card shadow">
+    <div class="card-header text-white" style="background-color: #1a6b3c;">
+      <h4 class="mb-0">📝 Formulario de Matrícula</h4>
     </div>
-
     <div class="card-body">
-
       <form (ngSubmit)="guardar()">
 
-        <!-- NOMBRE -->
         <div class="mb-3">
-          <label>Nombres</label>
-          <input type="text"
-                 class="form-control"
-                 [(ngModel)]="datos.nombres"
-                 name="nombres">
+          <label class="form-label">Nombres</label>
+          <input type="text" class="form-control"
+                 [(ngModel)]="datos.nombres" name="nombres" required>
         </div>
 
-        <!-- CODIGO -->
         <div class="mb-3">
-          <label>Código Estudiante</label>
-          <input type="text"
-                 class="form-control"
-                 [(ngModel)]="datos.codigoEstudiante"
-                 name="codigoEstudiante">
+          <label class="form-label">Código Estudiante</label>
+          <input type="text" class="form-control"
+                 [(ngModel)]="datos.codigoEstudiante" name="codigoEstudiante" required>
         </div>
 
-        <!-- CURSO -->
         <div class="mb-3">
-
-          <label>Curso</label>
-
-          <select class="form-select"
-                  [(ngModel)]="datos.cursoId"
-                  name="cursoId">
-
-            <option [ngValue]="0">
-              Selecciona un curso
-            </option>
-
-            <option *ngFor="let c of cursos"
-                    [ngValue]="c.id">
-
+          <label class="form-label">Curso</label>
+          <select class="form-select" [(ngModel)]="datos.cursoId" name="cursoId">
+            <option [ngValue]="0">Selecciona un curso</option>
+            <option *ngFor="let c of cursos" [ngValue]="c.id">
               {{ c.nombre }} ({{ c.vacantes }} vacantes)
-
             </option>
-
           </select>
-
         </div>
 
-        <!-- TURNO -->
         <div class="mb-3">
-
-          <label>Turno</label>
-
-          <select class="form-select"
-                  [(ngModel)]="datos.turno"
-                  name="turno">
-
+          <label class="form-label">Turno</label>
+          <select class="form-select" [(ngModel)]="datos.turno" name="turno">
             <option>Mañana</option>
             <option>Tarde</option>
             <option>Noche</option>
-
           </select>
-
         </div>
 
-        <!-- BOTÓN -->
-        <button class="btn btn-success" type="submit">
-          Registrar Matrícula
-        </button>
+        <button class="btn btn-success" type="submit">Registrar Matrícula</button>
 
       </form>
-
     </div>
-
   </div>
 
-  <!-- TABLA MATRICULADOS -->
   <hr class="mt-5">
+  <h4>Alumnos Matriculados</h4>
 
-  <h3>Alumnos Matriculados</h3>
-
-  <table class="table table-bordered mt-3">
-
+  <table class="table table-bordered table-striped mt-3">
     <thead class="table-dark">
-
       <tr>
         <th>Nombre</th>
         <th>Código</th>
         <th>Curso ID</th>
         <th>Turno</th>
       </tr>
-
     </thead>
-
     <tbody>
-
       <tr *ngFor="let m of matriculas">
-
         <td>{{ m.nombres }}</td>
         <td>{{ m.codigoEstudiante }}</td>
         <td>{{ m.cursoId }}</td>
         <td>{{ m.turno }}</td>
-
       </tr>
-
     </tbody>
-
   </table>
 
 </div>

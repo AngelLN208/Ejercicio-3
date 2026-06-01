@@ -1,1 +1,31 @@
-<p>inicio works!</p>
+<app-navbar></app-navbar>
+
+<div style="background: linear-gradient(135deg, #f0f4f8, #e8f5e9); min-height: 100vh;" class="py-5">
+  <div class="container text-center mt-4">
+
+    <h1 class="fw-bold text-primary mb-2" style="font-size: 2.8rem;">Gestor de Cursos</h1>
+    <p class="text-muted mb-5 fs-5">Gestiona tu catálogo de cursos académicos y asignaturas de forma simple</p>
+
+    <div class="row justify-content-center g-4">
+
+      <div class="col-md-4">
+        <div class="card shadow-sm h-100 p-4 text-center">
+          <div class="mb-3" style="font-size: 2.5rem;">📚</div>
+          <h5 class="fw-bold">Ver Cursos</h5>
+          <p class="text-muted">Consulta y gestiona la lista de cursos ofertados.</p>
+          <a routerLink="/cursos" class="btn btn-outline-secondary mt-auto">Ver Cursos</a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card shadow-sm h-100 p-4 text-center">
+          <div class="mb-3" style="font-size: 2.5rem;">📝</div>
+          <h5 class="fw-bold">Nuevo Registro</h5>
+          <p class="text-muted">Crea una nueva matrícula de alumno con todos sus datos.</p>
+          <a routerLink="/matricula" class="btn btn-success mt-auto">Nuevo Registro</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

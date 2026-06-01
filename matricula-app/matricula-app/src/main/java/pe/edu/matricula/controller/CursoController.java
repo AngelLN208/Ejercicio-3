@@ -14,7 +14,7 @@ import pe.edu.matricula.repository.CursoRepository;
 
 @RestController
 @RequestMapping("/api/cursos")
-@CrossOrigin("*")
+@CrossOrigin("https://ejercicio-3-two.vercel.app")
 public class CursoController {
 
     @Autowired

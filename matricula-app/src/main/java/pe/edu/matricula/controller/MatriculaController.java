@@ -14,7 +14,7 @@ import pe.edu.matricula.service.CursoService; // 👈 IMPORT CORRECTO
 
 @RestController
 @RequestMapping("/api/matriculas")
-@CrossOrigin("*")
+@CrossOrigin("https://ejercicio-3-two.vercel.app")
 public class MatriculaController {
 
     @Autowired
